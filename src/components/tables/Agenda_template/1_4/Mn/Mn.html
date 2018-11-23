@@ -1,0 +1,86 @@
+<!-- 
+    TODO:
+        * добавить анимаю (7 гайд)
+        
+ -->
+
+
+
+<!--дублирует нижнюю кнопку как по стилям так и по функции -->
+<button on:click="showHideTableMondayOneFourYear()">
+    {#if hiddenTableMondayOneFourYear}
+        Показать на {mn}
+    {/if}
+    {#if !hiddenTableMondayOneFourYear}
+        Скрыть на {mn}
+    {/if}
+    
+</button>
+
+<div class="hidden-block" hidden={hiddenTableMondayOneFourYear}>
+    <table class="" >
+            <thead>
+                <th>
+                    <td>Время</td>
+                </th>
+                <th>
+                    <td>Что проводится</td>
+                </th>
+            </thead>
+            <tbody>
+                <tr>
+                    {#each hourse as hoursWork}
+                    <td>
+                        {hourse}
+                    </td>
+                    {/each}
+                </tr>
+                    {#each bussines as mnBussines}
+                <tr>
+                    <td>{bussines}</td>
+                </tr>
+                    {/each}
+            </tbody>
+        </table>
+
+    <!--дублирует верхнюю кнопку как по стилям так и по функции, скрывается и появляется вместе с таблицей данных -->
+    <button on:click="showHideTableMondayOneFourYear()">
+        Скрыть на {mn}
+    </button>
+</div>
+
+
+
+
+
+<script>
+    import bussinesOnWeek from '../../../../../data/1_4/store.js';
+    import daysOnWeek from '../../../../../data/days.js';
+
+
+
+    export default {
+        data() {
+            return {
+                hoursWork = bussinesOnWeek.hoursWork,
+                mnBussines = bussinesOnWeek.mn,
+                mn = daysOnWeek.mn,
+                hiddenTableMondayOneFourYear = true
+            };
+        }, methods: {
+            showHideTableMondayOneFourYear: ()=> {
+                // возможно понадобится перенсти остальные данные из возвращаемого обьекта Data
+                set({ hiddenTableMondayOneFourYear = !hiddenTableMondayOneFourYear })
+                
+            }
+        }
+        
+    };
+</script>
+
+
+
+<style>
+
+
+</style>
