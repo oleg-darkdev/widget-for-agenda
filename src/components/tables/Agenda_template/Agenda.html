@@ -1,11 +1,11 @@
 <div class="agenda">
-    <oneFourYears />
+    <Ribbon />
+    <OneFourYears />
 </div>
 
 <script>
-    import oneFouryears from './1_4/week.html';
-
-
+    import OneFourYears from './1_4/Week.html';
+    import Ribbon from './Ribbon.html';
 
     export default {
         data() {
@@ -15,7 +15,8 @@
         }, methods: {
 
         }, components: {
-            oneFouryears
+            OneFourYears,
+            Ribbon
         }
     };
 </script>
@@ -23,6 +24,15 @@
 
 
 <style>
+
+.agenda {
+    min-width: 40%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
 
 
 </style>

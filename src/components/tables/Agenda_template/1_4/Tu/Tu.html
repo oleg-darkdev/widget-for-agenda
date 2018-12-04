@@ -1,18 +1,80 @@
-<script>
-    import  from '';
+<div class="day">
+    <div class="btn">
+            <!-- The beginning of the block with animation on pressing day of the week -->
+            {#if hiddenTableDayOneFourYear}
+            <!-- default-btn -->
+            <button class="arrow_box_close" style="display:fles; "on:click="set({ hiddenTableDayOneFourYear: !hiddenTableDayOneFourYear })">
+                <span class="btn-hidden-show-table">Показать на</span>
+                <span>{mn}</span>
+            </button>
+            {/if} {#if !hiddenTableDayOneFourYear}
+            <!-- arrow_box -->
+            <button class="arrow_box_active" on:click="set({ hiddenTableDayOneFourYear: !hiddenTableDayOneFourYear })">
+                <span class="btn-hidden-show-table">Скрыть на</span>
+                <span>{mn}</span>
+            </button>
+            {/if}
 
+    </div>
+<!-- The end of the block with animation on pressing day of the week -->
+
+    <div class="day-table" hidden={hiddenTableDayOneFourYear}>
+        <table class="">
+            <thead>
+                <tr>
+                    <th>Время</th>
+                    <th>Что проводится</th>
+                </tr>
+            </thead>
+            <tbody>
+                {#each maxClockWorkInDay as countClock}
+                <tr>
+                    <td>
+                        {clockWork[countClock]}
+                    </td>
+                    <td>
+                        {employmentOnMn[countClock]}
+                    </td>
+                </tr>
+                {/each}
+            </tbody>
+        </table>
+        <button class="arrow_box_active btn-on-table" on:click="set({ hiddenTableDayOneFourYear: !hiddenTableDayOneFourYear })">
+            <span class="btn-hidden-show-table" >Скрыть на</span>
+              <span>{mn}</span>
+        </button>
+    </div>
+</div>
+
+
+<script>
+    import employmentOnWeek from '../../../../../data/1_4/store.js';
+
+    const clockWork = employmentOnWeek.clockWork,
+        employmentOnMn = employmentOnWeek.mn,
+        mn = employmentOnWeek.daysOnWeek.mn;
+
+    let counterClockOnDays = employmentOnWeek.counterClockOnDays,
+        maxClockWorkInDay = counterClockOnDays.splice(0, clockWork.length);
 
 
     export default {
+        oncreate() {
+            maxClockWorkInDay = counterClockOnDays.splice(0, clockWork.length)
+        },
         data() {
             return {
+                clockWork,
+                hiddenTableDayOneFourYear: true,
+                employmentOnMn,
+                mn,
+                counterClockOnDays,
+                maxClockWorkInDay
 
             };
-        }, methods: {
+        },
+        methods: {}
 
-        }, components: {
-
-        }
     };
 </script>
 
@@ -20,5 +82,21 @@
 
 <style>
 
+.day-table table{
+    margin-bottom: 50px;
 
+}
+
+.btn-hidden-show-table {
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+}
+
+span {
+     font-weight: bold;
+     color: orange;
+     font-size: 2em ;
+
+}
 </style>

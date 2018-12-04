@@ -1,20 +1,21 @@
 <div class="week">
     <Monday />
-    <Tuesday /> 
-    <Wednesday /> 
-    <Thursday /> 
-    <Friday /> 
-    <Saturday /> 
+<Tuesday />
+<!-- <Wednesday />  -->
+<!-- <Thursday />  -->
+<!-- <Friday />  -->
+<!-- <Saturday />   -->
 </div>
+
 
 
 <script>
     import Monday from './Mn/Mn.html';
     import Tuesday from './Tu/Tu.html';
-    import Wednesday from './We/We.html';
-    import Thursday from './Th/Th.html';
-    import Friday from './Fr/Fr.html';
-    import Saturday from './St/St.html';
+    // import Wednesday from './We/We.html';
+    // import Thursday from './Th/Th.html';
+    // import Friday from './Fr/Fr.html';
+    // import Saturday from './St/St.html';
 
 
 
@@ -28,10 +29,10 @@
         }, components: {
             Monday,
             Tuesday,
-            Wednesday,
-            Thursday,
-            Friday,
-            Saturday
+            // Wednesday,
+            // Thursday,
+            // Friday,
+            // Saturday
         }
     };
 </script>
@@ -39,6 +40,121 @@
 
 
 <style>
+.week {
+    /* margin: 20px; */
+    border: 2px solid orange;
+    /* border-radius: 35px; */
+    /* background-color: gray; */
+    width: 22rem;
+    padding: 30px 0 50px 0;
+}
 
+
+div :global(div.day) {
+    min-width: 400px;
+    max-width: 70%;
+}
+
+div :global(div.day-table){
+    margin-left: 20%;
+}
+
+
+/*
+    Styles for button triggers
+*/
+div   :global(button.arrow_box_close)  {
+    background-color: white;
+    display:flex;
+    flex-direction: column;
+
+}
+div    :global(button.arrow_box_active) {
+    background-color: orange;
+    display:flex;
+    flex-direction: column;
+
+}
+div  :global(button.arrow_box_active) {
+	position: relative;
+	background: white;
+    border: 4px solid #f9d38b;
+    padding: 10px;
+}
+
+div  :global(button.arrow_box_active, button.btn-on-table) {
+    padding: 5px;
+    display:flex;
+    flex-direction: column;
+}
+div  :global(button.arrow_box_close) {
+	position: relative;
+	background: white;
+    border: 4px solid #f9d38b;
+    padding: 10px;
+}
+
+div  :global(button.arrow_box_close:after, button.arrow_box_close:before ){
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+div :global(button.arrow_box_close:after )  {
+	border-color: rgba(136, 183, 213, 0);
+	border-left-color: orange;
+	border-width: 30px;
+	margin-top: -30px;
+}
+div   :global(button.arrow_box_close:before)  {
+	border-color: rgba(194, 225, 245, 0);
+	border-left-color: #f9d38b;
+	border-width: 36px;
+	margin-top: -36px;
+}
+
+
+
+
+div   :global(button.arrow_box_active:after, button.arrow_box_active:before) {
+	bottom: 100%;
+	left: 50%;
+    border: solid transparent;
+
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+div  :global(button.arrow_box_active:after ) {
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: #f4b746;
+	border-width: 30px;
+	margin-left: -30px;
+}
+div  :global(button.arrow_box_active:before) {
+	border-color: rgba(194, 225, 245, 0);
+	border-bottom-color: #f9d38b;
+	border-width: 36px;
+	margin-left: -36px;
+}
+
+div :global(div.btn) {
+    border-radius: 35px;
+    /* background-color: gray; */
+    width: 15rem;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
 
 </style>

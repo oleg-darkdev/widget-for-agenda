@@ -1,0 +1,59 @@
+<svelte:head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Svelte</title>
+  <link rel="stylesheet" type="text/css" href="./victorya.css" />
+</svelte:head>
+
+
+<div class="section">
+  <div class="">
+    <!-- <button
+      class="button button-outlined block-mobile"
+      on:click="set({ data: tools, hiddenTable: true})"
+    >
+      Инструменты
+    </button> -->
+    <Agenda />
+  </div>
+</div>
+
+<!-- <div class="btn-panel bordered"></div>
+{#if hiddenTable}
+
+{/if} -->
+
+
+<script>
+  import Agenda from "./components/tables/Agenda_template/Agenda.html"
+  
+  
+  
+  import allData from "./data/allData"
+  // import { fade } from "svelte-transitions"
+  import fade from "svelte-transitions-fade"
+
+
+  export default {
+    // transitions: { fade },
+    data() {
+      return {
+        electrotech: allData.electrotech,
+        data: [],
+        hiddenTable: false
+      }
+    },
+    methods: {},
+    components: {
+      Agenda
+    },
+    computed: {}
+  }
+</script>
+
+
+
+<style>
+
+</style>
