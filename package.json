@@ -2,6 +2,7 @@
   "name": "elp",
   "version": "1.0.1",
   "devDependencies": {
+    "eases-jsnext": "^1.0.10",
     "flow": "^0.2.3",
     "flow-bin": "^0.83.0",
     "jest": "^23.6.0",
@@ -15,14 +16,18 @@
     "sirv-cli": "^0.2.0",
     "svelte": "^2.10.1",
     "svelte-cli": "^3.0.0",
-    "svelte-preprocess": "^2.3.2"
+    "svelte-preprocess": "^2.3.2",
+    "svelte-transitions": "^1.2.0",
+    "svelte-transitions-fade": "^1.0.0"
   },
   "scripts": {
     "build": "rollup -c",
-    "autobuild": "rollup -c -w",
-    "dev": "run-p start:dev autobuild",
+    "dev": "rollup -c -w",
     "serve": "sirv public",
     "serve:dev": "sirv public --dev",
     "lint": "npm run flow"
+  },
+  "dependencies": {
+    "svelte-transitions-slide": "^1.0.0"
   }
 }
